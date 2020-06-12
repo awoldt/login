@@ -57,8 +57,19 @@ def createAcct():
         validateInput(fname)
         lname = input("Last name: ")
         validateInput(lname)
-        email = input("Email: ")
-        validateInput(email)
+        correctEmailFormat = False
+        while(correctEmailFormat == False):
+            email = input("Email: ")
+            for i in email:
+                if(i == "@"):
+                    correctEmailFormat = True
+                else:
+                    continue
+            if(correctEmailFormat == True):
+                validateInput(email)
+                break
+            else:
+                print("\n>>Error: email must contain '@'\n")
         loop = False
     print("\nAccount created!\n")
 
