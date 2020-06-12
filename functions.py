@@ -24,34 +24,32 @@ def createAcct():
             if len(x) == 0:
                 print("\n>>Error: must enter value\n")
                 if(inputsIndex == 0):
-                    fname = input(inputs[inputsIndex])
-                    x = fname
+                    x = input(inputs[inputsIndex])
                 elif(inputsIndex == 1):
-                    lname = input(inputs[inputsIndex])
-                    x = lname
+                    x = input(inputs[inputsIndex])
                 elif(inputsIndex == 2):
-                    email = input(inputs[inputsIndex])
-                    x = email
+                    x = input(inputs[inputsIndex])
             else:
                 isNum = containsNum(x)
+                if(inputsIndex == 2):
+                    isNum = False #allows email strings to contain integers
+                #if user fname or lname have a integer in string
                 if(isNum == True):
-                    print("\n>>Error: cannot use integers in name field\n")
+                    print("\n>>Error: cannot use integers in name fields\n")
                     if(inputsIndex == 0):
-                        fname = input(inputs[inputsIndex])
-                        x = fname
+                        x = input(inputs[inputsIndex])
                     elif(inputsIndex == 1):
-                        lname = input(inputs[inputsIndex])
-                        x = lname
+                        x = input(inputs[inputsIndex])
                     elif(inputsIndex == 2):
-                        email = input(inputs[inputsIndex])
-                        x = email
+                        x = input(inputs[inputsIndex])   
+                #correct input (no errors)
                 else:
                     inputsIndex += 1
-                    filePath = open("/users/alex/documents/accts.txt", "a")
+                    filePath = open("/users/alex/documents/python/login/accts.txt", "a")
                     filePath.write(x + "\n")
                     filePath.close()
 
-                    error = False
+                    error = False #ends loop
 
     loop = True
     while(loop == True):
