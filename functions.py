@@ -66,20 +66,24 @@ def editAccount():
     file = open("/users/alex/documents/python/login/accts.txt", "r")
     text = file.readlines()
     userInputs = tuple(text)
-    print(userInputs)
-    print(userInputs[0])
-    print(userInputs[0][0])
     numOfAccounts = 0
+    userEmail = input("Enter email associated with account: ")
 
     def compareEmails():
+        matches = 0
         # finds email data in text file
-        letterIndex = 0
-        for i in range(len(userInputs)): # i is word ex: "Alex"
-            print(i)
-            # compare this string to user email input
-            if userInputs[i][letterIndex] == "@":
-                print("email!")
-            
+        for i in range(len(userInputs)):
+            for y in range(len(userInputs[i])):
+                # finds where emails are in text file
+                if userInputs[i][y] == "@":
+                    for x in range(len(userEmail)): # email string length
+                        if(userEmail[x] == userInputs[i][x]):
+                            matches += 1
+                        else:
+                            break
+                    if(matches+1 == len(userInputs[i])):
+                        return True
+
     #counts number of accounts
     for i in range(len(text)):
         string = text[i]
@@ -87,8 +91,11 @@ def editAccount():
             if string[y] == "@":
                 numOfAccounts += 1
     
-    print("num of accounts: " + str(numOfAccounts))
-    compareEmails()
+    foundEmail = compareEmails()
+    if(foundEmail == True):
+        print("account found.")
+    else:
+        print("account not found.")
     file.close()
 
 def accountAction(x):
