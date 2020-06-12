@@ -9,10 +9,3 @@ while(loop == True):
     else:
         print("\n>>Error: unknown command '" + user_request + "'\n")
         continue
-    loop = False
-
-#indents accounts in txt file, easier to read
-filePath = open("/users/alex/documents/python/login/accts.txt", "a")
-filePath.write("\n")
-filePath.close()
-print("Goodbye!")

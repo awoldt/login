@@ -62,6 +62,35 @@ def createAcct():
         loop = False
     print("\nAccount created!\n")
 
+def editAccount():
+    file = open("/users/alex/documents/python/login/accts.txt", "r")
+    text = file.readlines()
+    userInputs = tuple(text)
+    print(userInputs)
+    print(userInputs[0])
+    print(userInputs[0][0])
+    numOfAccounts = 0
+
+    def compareEmails():
+        # finds email data in text file
+        letterIndex = 0
+        for i in range(len(userInputs)): # i is word ex: "Alex"
+            print(i)
+            # compare this string to user email input
+            if userInputs[i][letterIndex] == "@":
+                print("email!")
+            
+    #counts number of accounts
+    for i in range(len(text)):
+        string = text[i]
+        for y in range(len(string)):
+            if string[y] == "@":
+                numOfAccounts += 1
+    
+    print("num of accounts: " + str(numOfAccounts))
+    compareEmails()
+    file.close()
+
 def accountAction(x):
     actions = ("create", "edit", "delete")
     if len(x) == 0:
@@ -72,7 +101,7 @@ def accountAction(x):
             createAcct()
         #EDIT
         elif(x == "edit"):
-            print("edit")
+            editAccount()
         #DELETE
         elif(x == "delete"):
             print("delete")
