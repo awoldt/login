@@ -1,4 +1,5 @@
 inputsIndex = 0
+
 def createAcct():
     integer = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     currentInput = "First name: " #default value, user always asked for fname first
@@ -31,7 +32,7 @@ def createAcct():
             else:
                 isNum = containsNum(x)
                 if(inputsIndex == 2):
-                    isNum = False #allows email strings to contain integers
+                    isNum = False #allows email strings to contain integer 
                 #if user fname or lname have a integer in string
                 if(isNum == True):
                     print("\n>>Error: cannot use integers in name fields\n")
