@@ -1,5 +1,4 @@
 inputsIndex = 0
-
 def createAcct():
     integer = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     currentInput = "First name: " #default value, user always asked for fname first
